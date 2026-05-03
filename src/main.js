@@ -24,12 +24,15 @@ const {data, ...indexes} = initData(sourceData);
 function collectState() {
     const state = processFormData(new FormData(sampleTable.container));
     const rowsPerPage = parseInt(state.rowsPerPage);    // приведём количество страниц к числу
-    const page = parseInt(state.page ?? 1);                // номер страницы по умолчанию 1 и тоже число
+    const page = parseInt(state.page ?? 1);  
+    const totalFrom = parseFloat(state.totalFrom);
+    const totalTo = parseFloat(state.totalTo);              // номер страницы по умолчанию 1 и тоже число
 
     return {                                            // расширьте существующий return вот так
         ...state,
         rowsPerPage,
-        page
+        page,
+        total: [totalFrom, totalTo],
     };
 }
 
@@ -41,7 +44,7 @@ function render(action) {
     let state = collectState(); // состояние полей из таблицы
     let result = [...data]; // копируем для последующего изменения
     // @todo: использование
-    // result = applySearching(result, state, action);
+    result = applySearching(result, state, action);
     result = applyFiltering(result, state, action);
     result = applySorting(result, state, action);
     result = applyPagination(result, state, action); 
