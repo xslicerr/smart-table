@@ -50,6 +50,7 @@ export function initTable(settings, onAction) {
       return row.container;
     });
     root.elements.rows.replaceChildren(...nextRows);
+    
   };
 
   return { ...root, render };

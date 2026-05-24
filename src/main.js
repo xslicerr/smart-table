@@ -24,7 +24,7 @@ function collectState() {
   const page = parseInt(state.page ?? 1);
   const totalFrom = parseFloat(state.totalFrom);
   const totalTo = parseFloat(state.totalTo); // номер страницы по умолчанию 1 и тоже число
-
+  
   return {
     // расширьте существующий return вот так
     ...state,
