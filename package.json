@@ -2,7 +2,7 @@
   "name": "canonical",
   "version": "0.0.0",
   "private": true,
-  "description": "",
+  "description": "https://github.com/xslicerr/smart-table.git\r # sp6-2_smart-table_starter",
   "homepage": "https://github.com/xslicerr/smart-table#readme",
   "bugs": {
     "url": "https://github.com/xslicerr/smart-table/issues"
@@ -18,7 +18,18 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "echo 'Привет'",
+    "check": "prettier --check './**/*.{html,css,js}'",
+    "format": "prettier --write './**/*.{html,css,js}'",
+    "lint": "stylelint \"**/*.css\"",
+    "lintfix": "stylelint \"**/*.css\" --fix",
+    "checkAll": "npm run check && npm run lint",
+    "fixAll": "npm run format && npm run lintfix"
+  },
+  "dependencies": {
+    "prettier": "^3.8.3",
+    "stylelint": "^17.12.0"
   },
   "devDependencies": {
     "vite": "^6.0.5"
