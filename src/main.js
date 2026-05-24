@@ -20,7 +20,7 @@ const api = initData();
  */
 function collectState() {
   const state = processFormData(new FormData(sampleTable.container));
-  const rowsPerPage = parseInt(state.rowsPerPage); // приведём количество страниц к числу
+  const rowsPerPage = parseInt(state.rowsPerPage) || 10; // приведём количество страниц к числу
   const page = parseInt(state.page ?? 1);
   const totalFrom = parseFloat(state.totalFrom);
   const totalTo = parseFloat(state.totalTo); // номер страницы по умолчанию 1 и тоже число
